@@ -12,6 +12,7 @@
         @stack('header')
     </head>
     <body>
+        @include('admin.partials.sidebar')
         @yield('content')
 
         @stack('footer')
