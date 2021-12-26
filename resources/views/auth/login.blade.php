@@ -1,27 +1,18 @@
 @extends('layouts.guest')
 
 @section('content')
-    
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+
+    {!! Form::open(['route' => 'login']) !!}
         <div class="form-group">
-            <label for="email">{{ __('Email') }}</label>
-            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-            @error('email')
-                <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
+            {{ Form::label('email', __('Email')) }}
+            {{ Form::text('email', old('email'), ['class' => 'form-control']) }}
         </div>
 
         <div class="form-group">
-            <div class="d-block">
-                <label for="password" class="control-label">{{ __('Password') }}</label>
-            </div>
-            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-            @error('password')
-                <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
+            {{ Form::label('password', __('Password')) }}
+            {{ Form::password('password', ['class' => 'form-control']) }}
         </div>
-        
+
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-lg btn-icon icon-right w-100">{{ __('Login') }}</button>
         </div>
@@ -35,5 +26,6 @@
                 {{ __('Don\'t have an account?') }} <a href="{{ route('registration') }}">{{ __('Create new one') }}</a>
             </div>
         @endif
-    </form>
+
+    {!! Form::close() !!}
 @endsection

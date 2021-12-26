@@ -1,21 +1,36 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<div class="container-fluid">
-		<a class="navbar-brand" href="#">Larablog</a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbar">
-			<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Hello</a>
-					<ul class="dropdown-menu dropdown-menu-end">
-						<li><a class="dropdown-item" href="#">Action</a></li>
-						<li><a class="dropdown-item" href="#">Another action</a></li>
-						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="#">Logout</a></li>
-					</ul>
-				</li>
-			</ul>
-		</div>
+<nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+	<div class="navbar-brand-wrapper d-flex align-items-center">
+		<a class="navbar-brand brand-logo" href="{{ route('admin.home') }}">
+			<img src="{{ asset('images/logo.svg') }}" alt="logo" class="logo-dark" />
+		</a>
+		<a class="navbar-brand brand-logo-mini" href="{{ route('admin.home') }}">
+			<img src="{{ asset('images/logo-mini.svg') }}" alt="logo" />
+		</a>
+	</div>
+	<div class="navbar-menu-wrapper d-flex align-items-center flex-grow-1">
+		<form class="search-form d-none d-md-block" action="#">
+			<i class="icon-magnifier"></i>
+			<input type="search" class="form-control" placeholder="Search Here" title="Search here">
+		</form>
+		<ul class="navbar-nav navbar-nav-right ml-auto">
+			<li class="nav-item dropdown language-dropdown d-none d-sm-flex align-items-center">
+				<a class="nav-link d-flex align-items-center dropdown-toggle" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+					<div class="d-inline-flex mr-3">
+						<i class="flag-icon flag-icon-us"></i>
+					</div>
+					<span class="profile-text font-weight-normal">English</span>
+				</a>
+				<div class="dropdown-menu dropdown-menu-left navbar-dropdown py-2" aria-labelledby="LanguageDropdown">
+					<a class="dropdown-item">
+						<i class="flag-icon flag-icon-us"></i> English </a>
+					<a class="dropdown-item">
+						<i class="flag-icon flag-icon-fr"></i> French </a>
+					<a class="dropdown-item">
+						<i class="flag-icon flag-icon-ae"></i> Arabic </a>
+					<a class="dropdown-item">
+						<i class="flag-icon flag-icon-ru"></i> Russian </a>
+				</div>
+			</li>
+		</ul>
 	</div>
 </nav>
