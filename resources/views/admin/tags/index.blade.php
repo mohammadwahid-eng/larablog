@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('breadcrumbs')
-    {{ Breadcrumbs::render('admin.categories.edit', $category) }}
+    {{ Breadcrumbs::render('admin.tags') }}
 @endsection
 
 @section('content')
-    edit
+    all
 @endsection
