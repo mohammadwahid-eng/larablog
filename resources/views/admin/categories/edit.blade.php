@@ -13,7 +13,7 @@
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('categories.update', $category) }}" method="POST">
+                    <form action="{{ route('categories.update', $category) }}" method="POST" enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
                         <div class="form-group">
@@ -36,6 +36,10 @@
 									<option value="{{ $cat->id }}" @if(old('parent_id', $category->parent_id) == $cat->id) selected @endif>{{ $cat->name }}</option>
 								@endforeach
 							</select>
+						</div>
+                        <div class="form-group">
+							<label for="image">Image</label>
+							<input type="file" name="image" id="image" class="form-control">
 						</div>
                         <button type="submit" class="btn btn-primary">Update</button>
                     </form>
