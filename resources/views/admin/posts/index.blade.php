@@ -21,9 +21,9 @@
 								<thead>
 									<tr>
 										<th>ID</th>
+										<th>Image</th>
 										<th>Name</th>
 										<th>Slug</th>
-										<th>Description</th>
 										<th>Categories</th>
 										<th>Tags</th>
 										<th>Actions</th>
@@ -33,9 +33,15 @@
 									@foreach (\App\Models\Post::all() as $post)
 										<tr>
 											<td>{{ $post->id }}</td>
+											<td>
+												@if($post->getFirstMedia())
+													<img class="img-xs" src="{{ $post->getFirstMediaUrl() }}" alt="{{ $post->name }}">
+												@else
+													<img class="img-xs" src="http://placehold.it/50x50" alt="{{ $post->name }}">
+												@endif
+											</td>
 											<td>{{ $post->name }}</td>
 											<td>{{ $post->slug }}</td>
-											<td>{{ $post->description }}</td>
 											<td>
 												@foreach ($post->categories as $category)
 													<span class="badge badge-sm badge-info">{{ $category->name }}</span>
